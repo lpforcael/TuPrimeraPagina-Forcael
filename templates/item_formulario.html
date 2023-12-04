@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+
+<br>
+
+<form action='/primerapp/crear_item/' method="post">
+    {% csrf_token %}
+    <p> Nombre del ítem: <input type = "text" name="nombre">
+    <p> Descripción: <input type = "text" name="descripcion">
+    <p> Costo mensual: <input type = "number" name="costo_mensual">
+    <br>
+    <input type = "submit" value="Enviar">
+ </form>
+
+{% endblock %}
