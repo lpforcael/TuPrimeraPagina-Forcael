@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Moderna Bootstrap Template - Index 2 without slider</title>
+  <title>How Much?</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,15 +48,18 @@
       <div class="logo">
         <h1 class="text-light"><a href="/"><span>How Much?</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <!--<a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="active " href="/">Home</a></li>
-          <li><a href="/primerapp/crear_usuario/">Crear Nuevo Usuario</a></li>
+          <!--<li><a href="/primerapp/crear_usuario/">Crear Nuevo Usuario</a></li> -->
+          <li><a href="/primerapp/item_lista">Publicaciones</a></li>
           <li><a href="/primerapp/crear_ciudad/">Agregar Nueva Ciudad</a></li>
-          <li><a href="/primerapp/crear_item">Crear Nuevo Ítem</a></li>
+          <li><a href="/primerapp/busqueda_bd">Buscador de Ciudades</a></li>
+          <li><a href="/primerapp/ciudad_lista/">Lista de Ciudades</a></li>
+          <li><a href="/primerapp/item_crear/">Agregar Ítem</a></li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -79,17 +82,20 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Usuarios</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              {% if not request.user.is_authenticated %}
+              <li><i class="bx bx-chevron-right"></i> <a href="/usuarios/registro">Registrar Usuario</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/usuarios/login">Login</a></li>
+              {% else %}
+              <li><i class="bx bx-chevron-right"></i> <a href="/usuarios/logout">Logout</a></li>
+              {% endif %}
+              <li><i class="bx bx-chevron-right"></i> <a href="/usuarios/crear_perfil">Crear Perfil de Usuario</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/usuarios/perfil_usuario">Ver Perfil de Usuario</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
+          <!--<div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -98,28 +104,28 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
-          </div>
+          </div>-->
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+            <h4>Contáctanos</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Av. Principal #123 <br>
+              Temuco - IX Región<br>
+              Chile <br><br>
+              <strong>Phone:</strong> +56 9 55555555<br>
+              <strong>Email:</strong> luis@coder.com<br>
             </p>
 
           </div>
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <h3>About Moderna</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <h3>Acerca de mí</h3>
+            <p>Ingeniero Civil Industrial de la Universidad de la Frontera, actualmente desempeñándome como Jefe Procesos Comerciales en Aguas Araucanía, Temuco y también incursionando en el mundo de Python.</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://twitter.com/?lang=es" class="twitter" target="_blank"><i class="bx bxl-twitter"></i></a>              
+              <a href="https://www.facebook.com/" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/luis-pablo-forcael-llanquinao-b25668103/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
 
@@ -129,7 +135,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Moderna</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Luis Forcael</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

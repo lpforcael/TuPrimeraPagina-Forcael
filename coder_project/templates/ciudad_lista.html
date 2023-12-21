@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<h1>Lista Ciudades</h1>
+
+{% for ciudad in primerapp %}
+    <li>{{ciudad}}
+        
+        <a href="{% url 'ciudad editar' ciudad.pk %}">Modificar</a>
+        <a href="{% url 'ciudad eliminar' ciudad.pk %}">| Quitar</a>
+    </li>
+    <img src = "{{ciudad.imagen.url}}" alt="" height="100px">
+{% endfor %}
+
+{% endblock %}

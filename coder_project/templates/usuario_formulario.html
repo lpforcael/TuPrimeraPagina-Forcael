@@ -5,11 +5,11 @@
 
 <br>
 
-<form action='/primerapp/crear_item/' method="post">
+<form action='/primerapp/crear_usuario/' method="post">
     {% csrf_token %}
     <p> Nombre de usuario: <input type = "text" name="nombre">
-    <p> Nacionalidad: <input type = "text" name="descripcion">
-    <p> Edad: <input type = "number" name="costo_mensual">
+    <p> Nacionalidad: <input type = "text" name="nacionalidad">
+    <p> Edad: <input type = "number" name="edad">
     <p> Password: <input type = "password" name = "password">
     <br>
     <input type = "submit" value="Enviar">

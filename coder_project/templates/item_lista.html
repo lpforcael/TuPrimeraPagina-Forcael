@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<h1>Publicaciones</h1>
+
+{% for item in primerapp %}
+    <li>{{item}}
+        <a href="{% url 'item editar' item.pk %}">Editar</a>
+        <a href="{% url 'item eliminar' item.pk %}">| Eliminar</a>
+    </li>
+
+{% endfor %}
+
+{% endblock %}

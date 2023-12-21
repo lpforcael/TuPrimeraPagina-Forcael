@@ -8,9 +8,20 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-8">
+          {% if mensaje %}
+          <h2> INGRESO EXITOSO!! </h2>
+          <h2> {{ mensaje }}</h2>
+          {% endif %}
+          {% if request.user.is_staff %}
+          <h2>Eres Administrador</h2>
+          {% endif %}
           <h2>Bienvenido a "How Much?"</h2>
-          <p>Busca la ciudad que más se ajuste a tu estilo de vida ya sea para vacacionar o vivir.</p>
-          <a href="" class="btn-get-started ">Read More</a>
+          <p>Busca la ciudad que más se ajuste a tu estilo de vida ya sea para vivir o tomar unas vacaciones.</p>
+          {% if not request.user.is_authenticated %}
+          <a href="usuarios/login" class="btn-get-started ">Iniciar Sesión</a>
+          {% else %}
+          <a href="#" class="btn-get-started ">Sesión Iniciada</a>
+          {% endif %}
         </div>
       </div>
     </div>

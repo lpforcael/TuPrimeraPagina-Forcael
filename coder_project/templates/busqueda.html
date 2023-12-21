@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+<br>
+
+<form action='/primerapp/busqueda_bd/' method="GET">
+    <p> Nombre de la ciudad: <input type = "text" name="nombre_ciudad">
+    <br>
+    <input type = "submit" value="Enviar">
+ </form>
+
+{% for ciudad in lista %}
+
+    Nombre de la ciudad: {{ciudad.nombre_ciudad}}, País: {{ciudad.pais}}
+    <br>
+
+{% endfor %}
+
+{% endblock %}
