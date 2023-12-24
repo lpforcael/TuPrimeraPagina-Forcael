@@ -43,7 +43,7 @@ def crear_item(request):
 @login_required(login_url = 'login')
 def crear_ciudad(request):
     if request.method == "POST":
-        nuevo_formulario = CiudadFormulario(request.POST)
+        nuevo_formulario = CiudadFormulario(request.POST, request.FILES)
         
         if nuevo_formulario.is_valid():
             informacion = nuevo_formulario.cleaned_data
@@ -54,7 +54,7 @@ def crear_ciudad(request):
                     )
                 
             nueva_ciudad.save()
-            return render(request, 'index.html', imagen)
+            return render(request, 'index.html')
     else:
         nuevo_formulario = CiudadFormulario()
         return render(request, 'ciudad_formulario.html', {"formulario": nuevo_formulario})
@@ -115,6 +115,7 @@ class ItemListView(ListView):
     model = Item
     context_object_name = "primerapp"
     template_name = "item_lista.html"
+    ordering = ["-actualizado"]
 
 class ItemCreateView(LoginRequiredMixin, CreateView):
     model = Item

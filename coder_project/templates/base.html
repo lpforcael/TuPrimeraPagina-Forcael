@@ -62,6 +62,12 @@
           <li><a href="/primerapp/item_crear/">Agregar Ítem</a></li>
 
         </ul>
+        {% if request.user.is_authenticated %}
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link"> Sesión Iniciada como: <font color = "#efb810">&#160{{user.username}}</font></a></li>
+          </ul>
+        {% endif %}
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 

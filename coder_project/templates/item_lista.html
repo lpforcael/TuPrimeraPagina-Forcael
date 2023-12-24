@@ -4,11 +4,25 @@
 <h1>Publicaciones</h1>
 
 {% for item in primerapp %}
+
     <li>{{item}}
-        <a href="{% url 'item editar' item.pk %}">Editar</a>
-        <a href="{% url 'item eliminar' item.pk %}">| Eliminar</a>
+        
     </li>
+    <small>
+        Última actualización en {{ item.actualizado }}; Creado en {{ item.fecha }}   
+    </small>
+        {% if request.user.perfil.rol == 'usuario' %}
+        <a href="{% url 'item editar' item.pk %}">Editar</a>
+        {% endif %}
+        {% if request.user.perfil.rol == 'admin' %}
+        <a href="{% url 'item editar' item.pk %}">Editar</a>
+        {% endif %}
+        {% if request.user.perfil.rol == 'admin' %}
+        <a href="{% url 'item eliminar' item.pk %}">| Eliminar</a> 
+        {% endif %}
+<br></br>
 
 {% endfor %}
 
 {% endblock %}
+

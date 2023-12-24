@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime, date
+from django.utils import timezone
 
 
 # Create your models here.
@@ -6,7 +8,7 @@ from django.db import models
 class Ciudad(models.Model):
     nombre_ciudad = models.CharField(max_length=50)
     pais = models.CharField(max_length=50)
-    imagen = models.ImageField(upload_to="ciudades", null=True, blank=True)
+    imagen = models.ImageField(upload_to='ciudades', null=True, blank=True)
     
     def __str__(self):
         return self.nombre_ciudad +", "+ self.pais
@@ -16,8 +18,9 @@ class Item(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=80)
     costo = models.IntegerField()
-    #fecha = models.DateTimeField(auto_now_add=True)
-    
+    fecha = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
+   
     def __str__(self):
         return self.nombre +"; "+self.descripcion+" --> USD "+str(self.costo)+"; "+str(self.ciudad)
 

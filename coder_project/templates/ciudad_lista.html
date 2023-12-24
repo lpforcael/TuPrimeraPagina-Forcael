@@ -6,8 +6,15 @@
 {% for ciudad in primerapp %}
     <li>{{ciudad}}
         
+        {% if request.user.perfil.rol == 'admin' %}
         <a href="{% url 'ciudad editar' ciudad.pk %}">Modificar</a>
+        {% endif %}
+        {% if request.user.perfil.rol == 'usuario' %}
+        <a href="{% url 'ciudad editar' ciudad.pk %}">Modificar</a>
+        {% endif %}
+        {% if request.user.perfil.rol == 'admin' %}
         <a href="{% url 'ciudad eliminar' ciudad.pk %}">| Quitar</a>
+        {% endif %}
     </li>
     <img src = "{{ciudad.imagen.url}}" alt="" height="100px">
 {% endfor %}

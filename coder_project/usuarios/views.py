@@ -20,7 +20,7 @@ def login_request(request):
             user = authenticate(username=usuario, password=contrasenia)
             
             login(request, user)
-            return render(request, "index.html", {"mensaje": f'Bienvenido {user.username}'})
+            return render(request, "index.html", {"mensaje": f'Hola {user.username}'})
         else:
             return render(request, 'usuarios/login.html', {"formulario": formulario})
     
