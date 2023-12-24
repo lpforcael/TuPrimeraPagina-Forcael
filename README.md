@@ -11,3 +11,5 @@ Si el usuario se registra, podrá  registrar nuevos ítems y ciudades, pero no p
 Registrar una ciudad siempre va a solicitar una imagen de ésta. Por otra parte, los usuarios registrados al crear su perfil de usuario también deben cargar una fotografía.
 
 A continuación se deja el link de "How much?"
+
+https://www.youtube.com/watch?v=Z1t3y4fp4PA
